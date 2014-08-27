@@ -31,22 +31,23 @@ end
 
 page "/feed.xml", layout: false
 page "/sitemap.xml", layout: false
+page "/index.html", layout: :blog
 
 ###
 # Compass
 ###
 
 # Change Compass configuration
-# compass_config do |config|
-#   config.output_style = :compact
-# end
+compass_config do |config|
+  config.output_style = :compact
+end
 
 # Change Compass configuration
-# config :development do
+configure :development do
   compass_config do |config|
     config.sass_options = {:debug_info => true}
   end
-# end
+end
 
 ###
 # Page options, layouts, aliases and proxies
@@ -162,6 +163,14 @@ configure :build do
 
   # Use relative URLs
   activate :relative_assets
+
+  activate :favicon_maker, :icons => {
+    "_favicon_template.png" => [
+      { icon: "apple-touch-icon-152x152-precomposed.png" },
+      { icon: "apple-touch-icon-114x114-precomposed.png" },
+      { icon: "apple-touch-icon-72x72-precomposed.png" }
+    ]
+  }
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
