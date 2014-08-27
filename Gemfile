@@ -14,7 +14,7 @@ gem "middleman-favicon-maker"
 gem "middleman-livereload", "~> 3.3.4"
 
 # For Slim
-gem "slim", "~> 2.0.2"
+gem "slim", "~> 2.0.3"
 
 # For Markdown
 gem "redcarpet", "~> 3.1.1"
