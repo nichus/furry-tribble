@@ -12,7 +12,7 @@ layout: blog
         = tag
   hr
   p
-    span.glyphicon.glyphicon-time
+    i.fa.fa-clock-o.fa-small
     |  Posted on 
     = article.date.strftime('%b %e')
   hr
@@ -21,8 +21,8 @@ layout: blog
     hr
   = article.summary
   a.btn.btn-primary href=article.url
-    | Read More
-    span.glyphicon.glyphicon-chevron-right
+    | Read More  
+    i.fa.fa-chevron-right.fa-tiny
   hr
 - if paginate
   - if num_pages > 1

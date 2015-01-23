@@ -29,7 +29,7 @@ ul
           = tag
     hr
     p
-      span.glyphicon.glyphicon-time
+      i.fa.fa-clock-o.fa-small
       |  Posted on 
       = article.date.strftime('%b %e')
     hr
@@ -38,8 +38,8 @@ ul
       hr
     = article.summary
     a.btn.btn-primary href=article.url
-      | Read More
-      span.glyphicon.glyphicon-chevron-right
+      | Read More  
+      i.fa.fa-chevron-right.fa-tiny
     hr
 - if paginate
   - if next_page

@@ -12,6 +12,7 @@ html
     = stylesheet_link_tag "all"
     link rel="icon" type="image/png" href="/favicon.png"
     = partial "partials/analytics"
+    = javascript_include_tag "//google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=desert"
   body
     = partial "partials/header"
     .container
@@ -27,7 +28,7 @@ html
                 = tag
             hr
             p
-              span.glyphicon.glyphicon-time
+              i.fa.fa-clock-o.fa-small
               |  Posted on 
               = current_article.date.strftime('%b %e')
             hr
@@ -35,8 +36,5 @@ html
               img.img-responsive src=current_article.data.image_src
               hr
           = yield
-          hr
-            p.text-center
-              | 2014 
-              = link_to "#{site_title}", "/"          
+	  = partial "partials/footer"
     = javascript_include_tag  "all"

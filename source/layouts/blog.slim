@@ -28,8 +28,8 @@ html
                 = tag
             hr
             p
-              span.glyphicon.glyphicon-time
-              |  Posted on 
+              i.fa.fa-clock-o.fa-small
+              | Posted on 
               = current_article.date.strftime('%b %e')
             hr
             - if current_article.data.image_src
@@ -45,8 +45,5 @@ html
                   = link_to article.title, article
                   span<>
                     = article.date.strftime('%b %e')
-          hr
-            p.text-center
-              | 2014 
-              = link_to "#{site_title}", "/"          
+	  = partial "partials/footer"
     = javascript_include_tag  "all"
