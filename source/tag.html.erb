@@ -1,0 +1,44 @@
+---
+pageable: true
+per_page: 12
+--- 
+<h1>Articles tagged '<%= tagname %>'</h1>
+
+<% if paginate && num_pages > 1 -%>
+<p>Page <%= page_number %> of <%= num_pages %></p>
+<%   if prev_page -%>
+<p> <%= link_to 'Previous page', prev_page %>
+<%   end -%>
+<% end -%>
+
+<ul>
+<%  page_articles.each_with_index do |article, i| -%>
+  <h2><%= link_to article.title, article %></h2>
+  <p>
+<%    article.tags.each do |tag| -%>
+      <small class="label label-default"><%= tag %></small>
+<%    end -%>
+  </p>
+  <hr />
+  <p>
+    <i class="fa fa-clock-o fa-small"></i> Posted on <%= article.date.strftime('%b %e') %>
+  </p>
+  <hr />
+<%   if article.data.image_src -%>
+  <img class="img-responsive" src="<%= article.data.image_src %>" />
+  <hr />
+<%   end %>
+  <p>
+    <%= article.summary %>
+  </p>
+  <a class="btn btn-primary" href="<%= article.url %>">Read More <i class="fa fa-chevron-right fa-tiny"></i></a>
+  <hr />
+<%  end -%>
+</ul>
+<% if paginate -%>
+<%   if next_page -%>
+<p>
+<%= link_to 'Next page', next_page %>
+</p>
+<%   end -%>
+<% end -%>

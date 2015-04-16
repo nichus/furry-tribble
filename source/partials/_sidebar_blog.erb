@@ -1,0 +1,16 @@
+<div class="well">
+  <h4>Tags</h4>
+  <ul class="list-unstyled">
+  <% blog.tags.each do |tag,articles| -%>
+    <li><%= link_to tag, tag_path(tag) %> (<%= articles.size %>)</li>
+  <% end -%>
+  </ul>
+</div>
+<div class="well">
+  <h4>By Year</h4>
+  <ul class="list-unstyled">
+    <% blog.articles.group_by {|a| a.date.year }.each do |year,articles| -%>
+    <li><%= link_to year, blog_year_path(year) %> (<%= articles.size %>)</li>
+  <% end -%>
+  </ul>
+</div>

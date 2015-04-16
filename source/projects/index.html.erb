@@ -1,0 +1,38 @@
+<style>
+  #main div.projects-main > section {
+    display: flex;
+    flex-flow: row;
+  }
+  #main div.projects-main > section > div.project-nav {
+    margin: 4px;
+    padding: 5px;
+    flex: 1 6 20%;
+    order: 1;
+    min-width: 210px;
+  }
+  #main div.projects-main > section > div.project-about {
+    margin: 4px;
+    padding: 5px;
+    flex: 3 1 60%;
+    order: 2;
+  }
+</style>
+<h1>My Projects</h1>
+
+<div class="well">
+There isn't much to see here now, I've been pretty idle on the projects front for a number of years, but I'm hoping to start this back up, since it's what I actually enjoy doing.
+</div>
+
+<div class="projects-main">
+  <section>
+    <div class="project-nav">
+      <%= link_to "TamperMonkey UserScripts", "/projects/tampermonkey.html" %>
+    </div>
+    <div class="project-about">
+      Some small UserScripts (currently just one) for the TamperMonkey
+      (<%= link_to "Install", "https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo" %>
+      |
+      <%= link_to "Project", "http://tampermonkey.net/" %>) extension for Chrome.  TamperMonkey is a chrome extension which manages custom userscripts.
+    </div>
+  </section>
+</div>
