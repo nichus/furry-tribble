@@ -1,0 +1,36 @@
+---
+pageable: true
+per_page: 10
+---
+
+<% page_articles.each_with_index do |article, i| -%>
+  <h1><%= link_to article.title, article %></h1>
+  <p>
+    <% article.tags.each do |tag| %><small class="label label-default"><%= tag %></small> <% end %>
+  </p>
+  <hr />
+  <p><i class="fa fa-clock-o fa-small"></i> Posted <%= article.date.strftime("%Y-%m-%d") %></p>
+  <hr />
+  <% if article.data.image_src %>
+    <%= image_tag article.data.image_src, class: 'img-responsive' %>
+    <hr />
+  <% end %>
+  <%= article.summary %>
+  <a href="<%= article.url %>" class="btn btn-primary">Read More <i class="fa fa-chevron-right fa-tiny"></i></a>
+  <hr />
+  <% if paginate -%>
+    <% if num_pages > 1 -%>
+      <div class="well-sm">
+	<ul class="pager">
+	  <% if page_number > 1 -%>
+	    <li class="previous"><%= link_to '&larr;', prev_page %></li>
+	  <% end -%>
+	  <span class="text-center">Page <%= page_number %> of <%= pages %>
+	  <% if page_number < num_pages -%>
+	    <li class="next"><%= link_to '&rarr;', next_page %></li>
+	  <% end -%>
+	</ul>
+      </div>
+    <% end -%>
+  <% end -%>
+<% end -%>
