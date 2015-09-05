@@ -18,7 +18,10 @@
     <article>
       <% unless current_article.nil? -%>
       <h1><%= current_article.title %></h1>
-      <p><i class="fa fa-clock-o fa-small"></i> Posted on <%= current_article.date.strftime('%Y-%m-%d') %></p>
+      <p>
+	<i class="fa fa-clock-o fa-small"></i> Posted on <%= current_article.date.strftime('%Y-%m-%d') %>
+	<span class="g-plusone" data-size="small" data-annotation="none" data-href="<%= current_article.url %>"></span>
+      </p>
       <% current_article.tags.each do |tag| -%>
 	<small class="label label-default"><%= tag %></small>
       <% end %>
