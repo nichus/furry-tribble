@@ -6,9 +6,10 @@
 </div>
 <div class="well">
   <h4>Recent Articles</h4>
-  <ul class="list-unstyled">
+  <dl class="list-unstyled article-list">
   <% blog.articles[0...10].each do |article| -%>
-    <li><%= link_to article.title, article %> <span><%= article.date.strftime('%b %e') %></span></li>
+    <dt title="<%=article.date.strftime("%Y-%m-%d %H:%M")%>"><%= time_ago_in_words(article.date) %> ago</dt>
+    <dd><%= link_to article.title, article %></dd>
   <% end -%>
-  </ul>
+  </dl>
 </div>

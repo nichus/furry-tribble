@@ -166,15 +166,31 @@ configure :build do
   # Use relative URLs
   activate :relative_assets
 
-  activate :favicon_maker, :icons => {
-    "_favicon_template.png" => [
-      { icon: "apple-touch-icon-152x152-precomposed.png" },
-      { icon: "apple-touch-icon-114x114-precomposed.png" },
-      { icon: "apple-touch-icon-72x72-precomposed.png" },
-      { icon: "favicon.png", size: "32x32" },
-      { icon: "favicon.ico", size: "64x64,32x32,16x16" }
-    ]
-  }
+  activate :favicon_maker do |f|
+    #f.template_dir = 'source/images/favicon_sources'
+    f.icons = {
+      "_favicon_template.png" => [
+	{ icon: "apple-touch-icon-152x152-precomposed.png" },
+	{ icon: "apple-touch-icon-114x114-precomposed.png" },
+	{ icon: "apple-touch-icon-72x72-precomposed.png" },
+	{ icon: "favicon.png", size: "32x32" },
+	{ icon: "favicon.ico", size: "64x64,32x32,16x16" }
+      ],
+      "_favicon_template_wide.png" => [
+	{ icon: "mstile-310x150.png", size: "310x150", format: :png }
+      ]
+    }
+  end
+
+#  activate :favicon_maker, :icons => {
+#    "_favicon_template.png" => [
+#      { icon: "apple-touch-icon-152x152-precomposed.png" },
+#      { icon: "apple-touch-icon-114x114-precomposed.png" },
+#      { icon: "apple-touch-icon-72x72-precomposed.png" },
+#      { icon: "favicon.png", size: "32x32" },
+#      { icon: "favicon.ico", size: "64x64,32x32,16x16" }
+#    ]
+#  }
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
@@ -192,3 +208,8 @@ end
 #   deploy.password = "ftp-password"
 #   deploy.path = "ftp-path"
 # end
+activate :deploy do |deploy|
+  deploy.method	= :git
+  deploy.remote	= 'origin'
+  deploy.branch	= 'master'
+end

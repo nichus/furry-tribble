@@ -55,6 +55,9 @@ header, footer {
   flex: 3 1 60%;
   order: 2;
 }
+dl.article-list dd {
+  padding-left: 0.75em;
+}
 @media all and (max-width: 640px) {
   #main, #page {
     flex-direction: column;

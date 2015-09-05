@@ -6,7 +6,7 @@ gem "middleman", "> 3.3.5"
 gem "middleman-blog", ">= 3.5.3"
 gem "middleman-syntax", ">= 2.0.0"
 #gem "middleman-target", "~> 0.0.6"
-gem "middleman-deploy", ">= 0.3.0"
+gem "middleman-deploy", "~> 1.0"
 
 gem "middleman-favicon-maker"
 

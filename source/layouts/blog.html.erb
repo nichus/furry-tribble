@@ -18,18 +18,27 @@
     <article>
       <% unless current_article.nil? -%>
       <h1><%= current_article.title %></h1>
+      <p><i class="fa fa-clock-o fa-small"></i> Posted on <%= current_article.date.strftime('%Y-%m-%d') %></p>
       <% current_article.tags.each do |tag| -%>
 	<small class="label label-default"><%= tag %></small>
       <% end %>
-      <hr />
-      <p>
-	<i class="fa fa-clock-o fa-small"></i> Posted on <%= current_article.date.strftime('%b %e') %>
-      </p>
       <hr />
       <% if current_article.data.image_src -%>
       <img class="img-responsive" src="<%=current_article.data.image_src %>" />
       <hr />
       <% end -%>
+      <script type="application/ld+json">
+      {
+	"@context": "http://schema.org",
+	"@type": "Blog",
+	"@id": "<%= current_article.url %>",
+	"headline": "<%= current_article.title %>",
+	"image": "<%= current_article.data.image_src %>",
+	"datePublished": "<%= current_article.date %>",
+	"description": "<%= page_description %>",
+	"articleBody": "<%= current_article.body %>"
+      }
+      </script>
       <% end -%>
       <%= yield %>
     </article>

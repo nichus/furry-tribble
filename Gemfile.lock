@@ -157,7 +157,7 @@ DEPENDENCIES
   builder (~> 3.0)
   middleman (> 3.3.5)
   middleman-blog (>= 3.5.3)
-  middleman-deploy (>= 0.3.0)
+  middleman-deploy (~> 1.0)
   middleman-favicon-maker
   middleman-livereload (> 3.3.4)
   middleman-syntax (>= 2.0.0)

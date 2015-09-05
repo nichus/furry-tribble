@@ -5,13 +5,10 @@ layout: blog
 ---
 <% page_articles.each_with_index do |article, i| -%>
   <h1><%= link_to article.title, article %></h1>
+  <p><i class="fa fa-clock-o fa-small"></i> Posted on <%= article.date.strftime("%Y-%m-%d") %></p>
   <% article.tags.each do |tag| -%>
     <small class="label label-default"><%= tag %></small>
   <% end -%>
-  <hr />
-  <p>
-    <i class="fa fa-clock-o fa-small"></i> Posted on <%= article.date.strftime('%b %e') %>
-  </p>
   <hr />
   <% if article.data.image_src -%>
   <img class="img-responsive" src="<%=article.data.image_src %>" />
