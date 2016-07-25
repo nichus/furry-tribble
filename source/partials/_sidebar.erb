@@ -8,7 +8,7 @@
   <h4>Recent Articles</h4>
   <dl class="list-unstyled article-list">
   <% blog.articles[0...10].each do |article| -%>
-    <dt title="<%=article.date.strftime("%Y-%m-%d %H:%M")%>"><%= time_ago_in_words(article.date) %> ago</dt>
+    <dt><%= article.date.strftime("%Y-%m-%d %H:%M") %></dt>
     <dd><%= link_to article.title, article %></dd>
   <% end -%>
   </dl>
